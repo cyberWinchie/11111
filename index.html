@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота 11</title>
+    <style>
+        .task {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .task-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        #space-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .space-title {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .space-list {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-left: 20px;
+        }
+        .space-fact {
+            font-size: 16px;
+            background-color: #f1f8ff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .nearby-planets {
+            background-color: #e8f6f3;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Завдання 1: Математичний тест -->
+    <div class="task">
+        <h2 class="task-title">Завдання 1: Математичний тест</h2>
+        <script>
+            function runMathTest() {
+                alert("Вітаємо у математичному тесті!");
+                const answer = confirm("Хочете перевірити свої знання з математики?");
+                
+                if (answer) {
+                    const userAnswer = prompt("Скільки буде 7 * 8?", "");
+                    
+                    if (userAnswer === "56") {
+                        alert("Відмінно! Ви дали правильну відповідь!");
+                    } else if (userAnswer === null) {
+                        alert("Шкода, що ви відмінили введення!");
+                    } else {
+                        alert("Неправильно! Правильна відповідь: 56");
+                    }
+                } else {
+                    alert("До зустрічі наступного разу!");
+                }
+            }
+        </script>
+        <button onclick="runMathTest()">Почати тест</button>
+    </div>
+
+    <!-- Завдання 2: Обчислення квадратних рівнянь -->
+    <div class="task">
+        <h2 class="task-title">Завдання 2: Обчислення квадратних рівнянь</h2>
+        <script>
+            function calculateEquations() {
+                const x = parseInt(prompt("Введіть значення x", ""));
+                
+                if (!isNaN(x)) {
+                    let a = x * x + 5 * x - 3;
+                    let b = x * x - 3 * x + 2;
+                    let c = a / b;
+                    
+                    alert("Перший вираз (x² + 5x - 3) = " + a);
+                    alert("Другий вираз (x² - 3x + 2) = " + b);
+                    
+                    if (b !== 0) {
+                        alert("Результат ділення = " + c.toFixed(2));
+                    } else {
+                        alert("Помилка: ділення на нуль неможливе!");
+                    }
+                } else {
+                    alert("Будь ласка, введіть коректне числове значення!");
+                }
+            }
+        </script>
+        <button onclick="calculateEquations()">Обчислити рівняння</button>
+    </div>
+
+    <!-- Завдання 3: Обчислення параметрів піраміди -->
+    <div class="task">
+        <h2 class="task-title">Завдання 3: Обчислення параметрів піраміди</h2>
+        <script>
+            function calculatePyramid() {
+                let n = parseInt(prompt("Введіть кількість сторін основи піраміди (n ≥ 3)", ""));
+                let a = parseFloat(prompt("Введіть довжину сторони основи (a)", ""));
+                let h = parseFloat(prompt("Введіть висоту піраміди (h)", ""));
+
+                if (!isNaN(n) && !isNaN(a) && !isNaN(h) && n >= 3 && a > 0 && h > 0) {
+                    let R = a / (2 * Math.sin(Math.PI / n));
+                    let r = a / (2 * Math.tan(Math.PI / n));
+                    let Sbase = (n * a * r) / 2;
+                    let l = Math.sqrt(h * h + (R - r) * (R - r));
+                    let Slateral = (n * a * l) / 2;
+                    let Stotal = Slateral + Sbase;
+                    let V = (Sbase * h) / 3;
+
+                    alert("Параметри правильної " + n + "-кутної піраміди:");
+                    alert("Площа основи = " + Sbase.toFixed(2));
+                    alert("Площа бічної поверхні = " + Slateral.toFixed(2));
+                    alert("Повна площа поверхні = " + Stotal.toFixed(2));
+                    alert("Об'єм піраміди = " + V.toFixed(2));
+                    alert("Апофема піраміди = " + l.toFixed(2));
+                } else {
+                    alert("Будь ласка, введіть коректні значення!\n" +
+                          "Кількість сторін має бути ≥ 3\n" +
+                          "Довжина сторони та висота мають бути додатними числами");
+                }
+            }
+        </script>
+        <button onclick="calculatePyramid()">Обчислити параметри піраміди</button>
+    </div>
+
+    <!-- Завдання 4: Цікаві факти про космос -->
+    <div class="task">
+        <h2 class="task-title">Завдання 4: Цікаві факти про космос</h2>
+        <div id="space-info">
+            <h1 class="space-title">🌌 Дивовижний Космос 🌠</h1>
+            
+            <h2 style="color: #3498db;">Сонячна система</h2>
+            
+            <p style="font-size: 18px; line-height: 1.6; color: #34495e;">Наша Сонячна система містить:</p>
+            
+            <ul class="space-list">
+                <li style="margin: 10px 0;">1 зірку (Сонце) ☀️</li>
+                <li style="margin: 10px 0;">8 планет 🪐</li>
+                <li style="margin: 10px 0;">Понад 200 супутників 🌑</li>
+                <li style="margin: 10px 0;">Тисячі астероїдів ☄️</li>
+            </ul>
+            
+            <h3 style="color: #e74c3c; margin-top: 30px;">Цікаві факти</h3>
+            
+            <p class="space-fact">
+                Чи знаєте ви, що за один день Сонце виробляє більше енергії, ніж людство використало за всю свою історію?
+            </p>
+            
+            <div class="nearby-planets">
+                <h4 style="color: #16a085; margin-top: 0;">Найближчі планети до Землі:</h4>
+                <ol style="color: #2c3e50;">
+                    <li>Венера (38 млн км) 🌟</li>
+                    <li>Марс (55 млн км) 🔴</li>
+                </ol>
+            </div>
+            
+            <p style="text-align: center; color: #7f8c8d; margin-top: 30px; font-style: italic;">
+                Створено за допомогою JavaScript та HTML
+            </p>
+        </div>
+    </div>
+</body>
+</html>
